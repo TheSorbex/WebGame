@@ -1,0 +1,47 @@
+.table-blocks{
+  width: 10%;
+  min-height:10vh;
+  box-sizing: border-box;
+  background-color: orange;
+  float: left;
+  border: 3px solid black;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  vertical-align: sub;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+
+.clear{
+  clear: both;
+}
+body{
+ min-height:100vh;
+ width: 100%;
+ margin: 0 auto;
+}
+
+#infoBlock{
+  position: absolute;
+  z-index: 4;
+  background-color: rgba(0,0,0,0.7);
+  height:100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+button{
+  height: 40px;
+}
