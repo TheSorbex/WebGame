@@ -52,20 +52,13 @@
        });
        $(serverButton).after(serverButtonLoad);
 
+       var nextStepButton = document.createElement('button');
+       nextStepButton.innerHTML = "Следующий ход";
+       $(nextStepButton).on("click",function () {
+         battleController.nextStep();
+       })
+       $(serverButtonLoad).after(nextStepButton);
      })
-
-
-
-
-
-    // var form = document.createElement("form");
-    // var submit = document.createElement("input");
-    // form.setAttribute("action","/load");
-    // form.setAttribute("method","post");
-    // submit.setAttribute("type","submit");
-    // submit.innerHTML = "Загрузить";
-    // infoDiv.appendChild(form);
-    // form.appendChild(submit);
 
     for(var i = 0; i < 10; i++){
       this.table[i] = new Array(10);
@@ -94,7 +87,8 @@
   }
 },
            writeMap: function() {
-        var path = player1.army;
+        var path;
+        path = battleController.listOfPlayers[0].army.concat(battleController.listOfPlayers[1].army)
         for(var i = 0; i < 10; i++){
           for (var j = 0; j < 10; j++) {
 
@@ -144,7 +138,6 @@ moveTo(squad,direction){
       squad.y++;
     }
   }
-  watcher.detectForPlayer1();
   this.writeMap();
 }
 
@@ -154,13 +147,13 @@ moveTo(squad,direction){
 
 function checkKeyPress(key) {
    if(key.keyCode == "37"){
-     drawer.moveTo(player1.chosen,"LEFT");
+     drawer.moveTo(battleController.chosenPlayer.chosen,"LEFT");
    } else if(key.keyCode == "38"){
-     drawer.moveTo(player1.chosen,"UP");
+     drawer.moveTo(battleController.chosenPlayer.chosen,"UP");
    } else if(key.keyCode == "39"){
-     drawer.moveTo(player1.chosen,"RIGHT");
+     drawer.moveTo(battleController.chosenPlayer.chosen,"RIGHT");
    } else if(key.keyCode == "40"){
-     drawer.moveTo(player1.chosen,"DOWN");
+     drawer.moveTo(battleController.chosenPlayer.chosen,"DOWN");
    } else if(key.keyCode == "17"){
       drawer.workWithControlPanel()
    }

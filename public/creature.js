@@ -1,11 +1,9 @@
-function Creature(name,health,ws,bs,wsArmour,bsArmour,range){
+function Creature(name,armour,wsWeapon,bsWeapon){
   this.name = name;
-  this.health = health;
-  this.ws = ws;
-  this.bs = bs;
-  this.wsArmour = wsArmour;
-  this.bsArmour = bsArmour;
-  this.range = range;
+  this.armour = armour;
+  this.health = armour.health;
+  this.wsWeapon = wsWeapon;
+  this.bsWeapon = bsWeapon;
   this.attack = function(isWs){
     if (isWs == true){
       return ws;
